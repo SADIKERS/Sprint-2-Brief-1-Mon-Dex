@@ -1,0 +1,35 @@
+
+@import "tailwindcss";
+@config "../tailwind.config.js";
+
+.page-background {
+  min-height: 100vh;
+  background-color: #F7F1E9;
+  background-image: url("/images/Fond parcheminé du duel antique.png");
+  background-repeat: no-repeat;
+  background-position: center top;
+  background-size: cover;
+  background-attachment: fixed;
+}
+
+@layer components {
+  /* Bouton principal */
+  .btn-primary {
+    @apply h-12 px-6 rounded-xl bg-brand text-white font-bold;
+  }
+
+  /* Bouton secondaire */
+  .btn-outline {
+    @apply h-11 px-4 rounded-xl border-2 border-ink bg-white text-ink font-bold outline-none;
+  }
+
+  /* Bouton de filtre */
+  .chip {
+    @apply h-11 px-5 rounded-full border-2 border-line bg-white text-ink font-bold outline-none;
+  }
+
+  /* Champ de formulaire */
+  .field {
+    @apply h-12 rounded-xl border-2 border-line bg-white px-3 text-base outline-none;
+  }
+}
