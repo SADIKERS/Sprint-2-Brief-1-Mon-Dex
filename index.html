@@ -22,280 +22,563 @@
       </a>
 
       <nav aria-label="Navigation principale"
-        class="flex flex-col gap-1 text-[10px] sm:text-xs md:flex-row md:gap-2 lg:text-sm">
-        <a href="#grid" class="rounded-lg border border-amber-400 px-2 py-1 text-center font-bold">Monstres</a>
-        <a href="#team" class="rounded-lg border border-white/25 px-2 py-1 text-center font-bold">Mon équipe · <span
-            id="team-count">0</span>/6</a>
-        <a href="#create" class="rounded-lg bg-red-700 px-2 py-1 text-center font-bold">+ Nouveau monstre</a>
+        class="flex flex-col gap-1 text-[10px] sm:text-xs md:flex-row md:gap-2 lg:text-sm  ">
+        <a href="#grid"
+          class="rounded-lg border border-amber-400 px-2 py-1 text-center font-bold transition-transform hover:scale-110">Monstres</a>
+        <a href="#team"
+          class="rounded-lg border border-white/25 px-2 py-1 text-center font-bold transition-transform hover:scale-110">Mon
+          équipe · <span id="team-count">0</span>/6</a>
+        <a href="#create"
+          class="rounded-lg bg-red-700 px-2 py-1 text-center font-bold transition-transform hover:scale-110">+ Nouveau
+          monstre</a>
       </nav>
 
     </div>
   </header>
-
-  <main class="mx-auto flex max-w-7xl flex-col gap-8 px-8 py-8">
+  <main class=" mx-auto flex max-w-[1390px] flex-col gap-6 px-3 py-4 sm:px-4 lg:gap-8 lg:px-8 lg:py-8 ">
 
     <!-- ===================== RECHERCHE ET FILTRES ===================== -->
     <section aria-label="Recherche et filtres" class="flex flex-col gap-4">
-      <div class="flex flex-wrap items-end justify-between gap-4">
-        <h1 class="font-display text-4xl font-extrabold">Trouver une créature</h1>
-        <label class="flex w-full max-w-md flex-col gap-1 text-sm font-bold">
-          Rechercher par nom
-          <input id="search" type="search" placeholder="ex. Mossling" class="field font-normal">
+
+      <!-- Titre et recherche -->
+      <div class="flex flex-col gap-3 lg:flex-row lg:items-end lg:justify-between lg:gap-4">
+
+        <div>
+          <h1 class="font-display text-2xl font-extrabold sm:text-3xl lg:text-4xl"> Explorer <span
+              class="text-red-700">les monstres</span> </h1>
+          <p class="text-sm text-muted sm:text-base">
+            Découvrez et collectionnez vos monstres Yu-Gi-Oh! préférés.
+          </p>
+        </div>
+
+        <label class="flex w-full flex-col gap-1 text-sm font-bold lg:max-w-md"> Rechercher par nom
+          <input id="search" type="search" placeholder="ex. Dark Magician, Blue-Eyes..."
+            class="field w-full font-normal">
         </label>
+
       </div>
-      <div id="filters" role="group" aria-label="Filtrer par type" class="flex h-11 flex-nowrap gap-2 overflow-hidden">
-        <button type="button" class="chip bg-ink text-white border-ink shrink-0">Tous</button>
-        <button type="button" class="chip shrink-0">Feu</button>
-        <button type="button" class="chip shrink-0">Eau</button>
-        <button type="button" class="chip shrink-0">Plante</button>
-        <button type="button" class="chip shrink-0">Électrik</button>
-        <button type="button" class="chip shrink-0">Glace</button>
-        <button type="button" class="chip shrink-0">Ténèbres</button>
+      <!-- Filtres par attribut -->
+      <div id="filters" role="group" aria-label="Filtrer par attribut" class="flex flex-wrap gap-2">
+        <button type="button" data-type="Tous"
+          class="chip shrink-0 border-red-700 bg-red-700 text-white transition-transform hover:scale-110">Tous</button>
+        <button type="button" data-type="Lumière" class="chip shrink-0 transition-transform hover:scale-110">🔆
+          Lumière</button>
+        <button type="button" data-type="Ténèbres" class="chip shrink-0 transition-transform hover:scale-110">🟣
+          Ténèbres</button>
+        <button type="button" data-type="Feu" class="chip shrink-0 transition-transform hover:scale-110">🔥 Feu</button>
+        <button type="button" data-type="Eau" class="chip shrink-0 transition-transform hover:scale-110">💧 Eau</button>
+        <button type="button" data-type="Terre" class="chip shrink-0 transition-transform hover:scale-110">🌍
+          Terre</button>
+        <button type="button" data-type="Vent" class="chip shrink-0 transition-transform hover:scale-110">🌪️
+          Vent</button>
+        <button type="button" data-type="Divin" class="chip shrink-0 transition-transform hover:scale-110">🔱
+          Divin</button>
       </div>
+
     </section>
 
-    <div class="flex gap-8 items-start">
+    <!-- ===================== GRILLE, DÉTAILS ET ÉQUIPE ===================== -->
 
-      <!-- ===================== GRILLE DES CRÉATURES ===================== -->
-      <section id="grid" aria-label="Créatures" class="grid min-w-0 flex-1 grid-cols-3 gap-5">
+    <div class="flex flex-col gap-6 lg:flex-row lg:items-start lg:gap-5">
 
-        <!-- Carte écrite à la main : à remplacer par des cartes générées en JS (Partie 2) -->
-        <article class="flex flex-col gap-3 rounded-card bg-white p-3 pb-4">
-          <div class="relative flex h-36 items-center justify-center rounded-xl bg-brand-light">
-            <svg aria-hidden="true" class="h-14 w-14 text-muted" viewBox="0 0 24 24" fill="none" stroke="currentColor"
-              stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round">
-              <path d="M4 16c0-5 3.5-9 8-9s8 4 8 9"></path>
-              <circle cx="9" cy="12" r="1"></circle>
-              <circle cx="15" cy="12" r="1"></circle>
-              <path d="M7 7 5 3M17 7l2-4"></path>
-            </svg>
-            <span class="absolute left-3 top-2 font-mono text-sm text-muted">#001</span>
+      <!-- ===================== GRILLE DES MONSTRES ===================== -->
+      <section id="grid" aria-label="Monstres Yu-Gi-Oh!"
+        class="grid min-w-0 flex-1 grid-cols-2 gap-3 sm:gap-4 lg:grid-cols-2 xl:grid-cols-3">
+
+        <!-- Monstre 001 -->
+        <article class="flex min-w-0 flex-col gap-2 rounded-card bg-white p-2 shadow-sm sm:gap-3 sm:p-3">
+          <div class="relative overflow-hidden rounded-xl bg-brand-light">
+            <img src="https://s3.zerochan.net/240/00/35/3959250.avif" alt="Blue-Eyes White Dragon"
+              class="aspect-[4/3] w-full object-cover transition-transform hover:scale-105">
+            <span
+              class="absolute left-2 top-2 rounded-lg bg-black/80 px-2 py-1 font-mono text-xs font-bold text-white sm:text-sm">
+              #001
+            </span>
           </div>
-          <div class="flex items-center justify-between gap-2">
-            <h3 class="font-display text-xl font-semibold">Emberkit</h3>
-            <span class="rounded-full bg-brand-light px-3 py-1 text-sm font-bold text-ink">Feu</span>
+
+          <h3 class="break-words font-display text-sm font-bold sm:text-base">
+            Blue-Eyes White Dragon
+          </h3>
+
+          <div class="flex items-center justify-between gap-1 text-xs sm:text-sm">
+            <span>🔆 Lumière</span>
+            <span class="shrink-0 font-bold text-amber-500">★ 8</span>
           </div>
-          <p class="text-sm text-muted">Base · Total 309</p>
-          <button type="button" class="btn-outline">Ajouter à l'équipe</button>
+
+          <div class="flex flex-wrap justify-between gap-1 text-xs font-semibold sm:text-sm">
+            <span>ATK <strong>3000</strong></span>
+            <span>DEF <strong>2500</strong></span>
+          </div>
+
+          <button type="button" data-add-team="001" class="btn-outline w-full">
+            Ajouter à l'équipe
+          </button>
         </article>
 
-        <!-- Carte écrite à la main : à remplacer par des cartes générées en JS (Partie 2) -->
-        <article class="flex flex-col gap-3 rounded-card bg-white p-3 pb-4">
-          <div class="relative flex h-36 items-center justify-center rounded-xl bg-brand-light">
-            <svg aria-hidden="true" class="h-14 w-14 text-muted" viewBox="0 0 24 24" fill="none" stroke="currentColor"
-              stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round">
-              <path d="M4 16c0-5 3.5-9 8-9s8 4 8 9"></path>
-              <circle cx="9" cy="12" r="1"></circle>
-              <circle cx="15" cy="12" r="1"></circle>
-              <path d="M7 7 5 3M17 7l2-4"></path>
-            </svg>
-            <span class="absolute left-3 top-2 font-mono text-sm text-muted">#002</span>
+        <!-- Monstre 002 -->
+        <article class="flex min-w-0 flex-col gap-2 rounded-card bg-white p-2 shadow-sm sm:gap-3 sm:p-3">
+          <div class="relative overflow-hidden rounded-xl bg-brand-light">
+            <img src="https://i.pinimg.com/originals/e7/a3/ae/e7a3ae28d7b8893a6ab409fccfe3dc4a.jpg" alt="Dark Magician"
+              class="aspect-[4/3] w-full object-cover transition-transform hover:scale-105">
+            <span
+              class="absolute left-2 top-2 rounded-lg bg-black/80 px-2 py-1 font-mono text-xs font-bold text-white sm:text-sm">
+              #002
+            </span>
           </div>
-          <div class="flex items-center justify-between gap-2">
-            <h3 class="font-display text-xl font-semibold">Tidalix</h3>
-            <span class="rounded-full bg-brand-light px-3 py-1 text-sm font-bold text-ink">Eau</span>
+
+          <h3 class="break-words font-display text-sm font-bold sm:text-base">
+            Dark Magician
+          </h3>
+
+          <div class="flex items-center justify-between gap-1 text-xs sm:text-sm">
+            <span>🟣 Ténèbres</span>
+            <span class="shrink-0 font-bold text-amber-500">★ 7</span>
           </div>
-          <p class="text-sm text-muted">Base · Total 314</p>
-          <button type="button" class="btn-outline">Ajouter à l'équipe</button>
+
+          <div class="flex flex-wrap justify-between gap-1 text-xs font-semibold sm:text-sm">
+            <span>ATK <strong>2500</strong></span>
+            <span>DEF <strong>2100</strong></span>
+          </div>
+
+          <button type="button" data-add-team="002" class="btn-outline w-full">
+            Ajouter à l'équipe
+          </button>
         </article>
 
-        <!-- Carte écrite à la main : à remplacer par des cartes générées en JS (Partie 2) -->
-        <article class="flex flex-col gap-3 rounded-card bg-white p-3 pb-4">
-          <div class="relative flex h-36 items-center justify-center rounded-xl bg-brand-light">
-            <svg aria-hidden="true" class="h-14 w-14 text-muted" viewBox="0 0 24 24" fill="none" stroke="currentColor"
-              stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round">
-              <path d="M4 16c0-5 3.5-9 8-9s8 4 8 9"></path>
-              <circle cx="9" cy="12" r="1"></circle>
-              <circle cx="15" cy="12" r="1"></circle>
-              <path d="M7 7 5 3M17 7l2-4"></path>
-            </svg>
-            <span class="absolute left-3 top-2 font-mono text-sm text-muted">#003</span>
+        <!-- Monstre 003 -->
+        <article class="flex min-w-0 flex-col gap-2 rounded-card bg-white p-2 shadow-sm sm:gap-3 sm:p-3">
+          <div class="relative overflow-hidden rounded-xl bg-brand-light">
+            <img src="./images/red-eyes-black-dragon.png" alt="Red-Eyes Black Dragon"
+              class="aspect-[4/3] w-full object-cover transition-transform hover:scale-105">
+            <span
+              class="absolute left-2 top-2 rounded-lg bg-black/80 px-2 py-1 font-mono text-xs font-bold text-white sm:text-sm">
+              #003
+            </span>
           </div>
-          <div class="flex items-center justify-between gap-2">
-            <h3 class="font-display text-xl font-semibold">Mossling</h3>
-            <span class="rounded-full bg-brand-light px-3 py-1 text-sm font-bold text-ink">Plante</span>
+
+          <h3 class="break-words font-display text-sm font-bold sm:text-base">
+            Red-Eyes Black Dragon
+          </h3>
+
+          <div class="flex items-center justify-between gap-1 text-xs sm:text-sm">
+            <span>🟣 Ténèbres</span>
+            <span class="shrink-0 font-bold text-amber-500">★ 7</span>
           </div>
-          <p class="text-sm text-muted">Base · Total 318</p>
-          <button type="button" class="btn-outline">Ajouter à l'équipe</button>
+
+          <div class="flex flex-wrap justify-between gap-1 text-xs font-semibold sm:text-sm">
+            <span>ATK <strong>2400</strong></span>
+            <span>DEF <strong>2000</strong></span>
+          </div>
+
+          <button type="button" data-add-team="003" class="btn-outline w-full">
+            Ajouter à l'équipe
+          </button>
         </article>
 
-        <!-- Carte écrite à la main : à remplacer par des cartes générées en JS (Partie 2) -->
-        <article class="flex flex-col gap-3 rounded-card bg-white p-3 pb-4">
-          <div class="relative flex h-36 items-center justify-center rounded-xl bg-brand-light">
-            <svg aria-hidden="true" class="h-14 w-14 text-muted" viewBox="0 0 24 24" fill="none" stroke="currentColor"
-              stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round">
-              <path d="M4 16c0-5 3.5-9 8-9s8 4 8 9"></path>
-              <circle cx="9" cy="12" r="1"></circle>
-              <circle cx="15" cy="12" r="1"></circle>
-              <path d="M7 7 5 3M17 7l2-4"></path>
-            </svg>
-            <span class="absolute left-3 top-2 font-mono text-sm text-muted">#004</span>
+        <!-- Monstre 004 -->
+        <article class="flex min-w-0 flex-col gap-2 rounded-card bg-white p-2 shadow-sm sm:gap-3 sm:p-3">
+          <div class="relative overflow-hidden rounded-xl bg-brand-light">
+            <img src="./images/summoned-skull.png" alt="Summoned Skull"
+              class="aspect-[4/3] w-full object-cover transition-transform hover:scale-105">
+            <span
+              class="absolute left-2 top-2 rounded-lg bg-black/80 px-2 py-1 font-mono text-xs font-bold text-white sm:text-sm">
+              #004
+            </span>
           </div>
-          <div class="flex items-center justify-between gap-2">
-            <h3 class="font-display text-xl font-semibold">Voltmaw</h3>
-            <span class="rounded-full bg-brand-light px-3 py-1 text-sm font-bold text-ink">Électrik</span>
+
+          <h3 class="break-words font-display text-sm font-bold sm:text-base">
+            Summoned Skull
+          </h3>
+
+          <div class="flex items-center justify-between gap-1 text-xs sm:text-sm">
+            <span>🟣 Ténèbres</span>
+            <span class="shrink-0 font-bold text-amber-500">★ 6</span>
           </div>
-          <p class="text-sm text-muted">Niveau 1 · Total 405</p>
-          <button type="button" class="btn-outline">Ajouter à l'équipe</button>
+
+          <div class="flex flex-wrap justify-between gap-1 text-xs font-semibold sm:text-sm">
+            <span>ATK <strong>2500</strong></span>
+            <span>DEF <strong>1200</strong></span>
+          </div>
+
+          <button type="button" data-add-team="004" class="btn-outline w-full">
+            Ajouter à l'équipe
+          </button>
         </article>
 
-        <!-- Carte écrite à la main : à remplacer par des cartes générées en JS (Partie 2) -->
-        <article class="flex flex-col gap-3 rounded-card bg-white p-3 pb-4">
-          <div class="relative flex h-36 items-center justify-center rounded-xl bg-brand-light">
-            <svg aria-hidden="true" class="h-14 w-14 text-muted" viewBox="0 0 24 24" fill="none" stroke="currentColor"
-              stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round">
-              <path d="M4 16c0-5 3.5-9 8-9s8 4 8 9"></path>
-              <circle cx="9" cy="12" r="1"></circle>
-              <circle cx="15" cy="12" r="1"></circle>
-              <path d="M7 7 5 3M17 7l2-4"></path>
-            </svg>
-            <span class="absolute left-3 top-2 font-mono text-sm text-muted">#005</span>
+        <!-- Monstre 005 -->
+        <article class="flex min-w-0 flex-col gap-2 rounded-card bg-white p-2 shadow-sm sm:gap-3 sm:p-3">
+          <div class="relative overflow-hidden rounded-xl bg-brand-light">
+            <img src="./images/dark-magician-girl.png" alt="Dark Magician Girl"
+              class="aspect-[4/3] w-full object-cover transition-transform hover:scale-105">
+            <span
+              class="absolute left-2 top-2 rounded-lg bg-black/80 px-2 py-1 font-mono text-xs font-bold text-white sm:text-sm">
+              #005
+            </span>
           </div>
-          <div class="flex items-center justify-between gap-2">
-            <h3 class="font-display text-xl font-semibold">Frostail</h3>
-            <span class="rounded-full bg-brand-light px-3 py-1 text-sm font-bold text-ink">Glace</span>
+
+          <h3 class="break-words font-display text-sm font-bold sm:text-base">
+            Dark Magician Girl
+          </h3>
+
+          <div class="flex items-center justify-between gap-1 text-xs sm:text-sm">
+            <span>🟣 Ténèbres</span>
+            <span class="shrink-0 font-bold text-amber-500">★ 6</span>
           </div>
-          <p class="text-sm text-muted">Niveau 1 · Total 420</p>
-          <button type="button" class="btn-outline">Ajouter à l'équipe</button>
+
+          <div class="flex flex-wrap justify-between gap-1 text-xs font-semibold sm:text-sm">
+            <span>ATK <strong>2000</strong></span>
+            <span>DEF <strong>1700</strong></span>
+          </div>
+
+          <button type="button" data-add-team="005" class="btn-outline w-full">
+            Ajouter à l'équipe
+          </button>
         </article>
 
-        <!-- Carte écrite à la main : à remplacer par des cartes générées en JS (Partie 2) -->
-        <article class="flex flex-col gap-3 rounded-card bg-white p-3 pb-4">
-          <div class="relative flex h-36 items-center justify-center rounded-xl bg-brand-light">
-            <svg aria-hidden="true" class="h-14 w-14 text-muted" viewBox="0 0 24 24" fill="none" stroke="currentColor"
-              stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round">
-              <path d="M4 16c0-5 3.5-9 8-9s8 4 8 9"></path>
-              <circle cx="9" cy="12" r="1"></circle>
-              <circle cx="15" cy="12" r="1"></circle>
-              <path d="M7 7 5 3M17 7l2-4"></path>
-            </svg>
-            <span class="absolute left-3 top-2 font-mono text-sm text-muted">#006</span>
+        <!-- Monstre 006 -->
+        <article class="flex min-w-0 flex-col gap-2 rounded-card bg-white p-2 shadow-sm sm:gap-3 sm:p-3">
+          <div class="relative overflow-hidden rounded-xl bg-brand-light">
+            <img src="./images/slifer-the-sky-dragon.png" alt="Slifer the Sky Dragon"
+              class="aspect-[4/3] w-full object-cover transition-transform hover:scale-105">
+            <span
+              class="absolute left-2 top-2 rounded-lg bg-black/80 px-2 py-1 font-mono text-xs font-bold text-white sm:text-sm">
+              #006
+            </span>
           </div>
-          <div class="flex items-center justify-between gap-2">
-            <h3 class="font-display text-xl font-semibold">Duskwing</h3>
-            <span class="rounded-full bg-brand-light px-3 py-1 text-sm font-bold text-ink">Ténèbres</span>
+
+          <h3 class="break-words font-display text-sm font-bold sm:text-base">
+            Slifer the Sky Dragon
+          </h3>
+
+          <div class="flex items-center justify-between gap-1 text-xs sm:text-sm">
+            <span>🔱 Divin</span>
+            <span class="shrink-0 font-bold text-amber-500">★ 10</span>
           </div>
-          <p class="text-sm text-muted">Niveau 2 · Total 525</p>
-          <button type="button" class="btn-outline">Ajouter à l'équipe</button>
+
+          <div class="flex flex-wrap justify-between gap-1 text-xs font-semibold sm:text-sm">
+            <span>ATK <strong>2000</strong></span>
+            <span>DEF <strong>1500</strong></span>
+          </div>
+
+          <button type="button" data-add-team="006" class="btn-outline w-full">
+            Ajouter à l'équipe
+          </button>
         </article>
 
       </section>
 
-      <aside class="flex w-[420px] shrink-0 flex-col gap-6">
+      <!-- ===================== DÉTAILS ET ÉQUIPE ===================== -->
+      <aside class="flex w-full min-w-0 flex-col gap-5 lg:w-[340px] xl:w-[420px] lg:shrink-0">
 
-        <!-- ===================== PANNEAU DE DÉTAIL ===================== -->
-        <section id="detail" aria-label="Détail de la créature"
-          class="flex flex-col gap-4 rounded-card border-2 border-ink bg-white p-6">
-          <div class="flex items-center justify-between">
-            <span class="font-mono text-sm text-muted">#003 · Détail</span>
-            <button type="button" aria-label="Fermer le détail" class="btn-outline w-11 px-0">✕</button>
+        <!-- ===================== DÉTAIL DU MONSTRE ===================== -->
+        <section id="detail" aria-label="Détail du monstre"
+          class="overflow-hidden rounded-card border border-red-200 bg-white shadow-sm">
+
+          <div class="flex items-center justify-between gap-3 bg-red-900 px-4 py-3 text-white">
+            <h2 class="font-display text-lg font-bold sm:text-xl">
+              #001 - Détail
+            </h2>
+
+            <button type="button" id="close-detail" aria-label="Fermer le détail"
+              class="rounded-lg border border-white/50 px-3 py-1">
+              ✕
+            </button>
           </div>
-          <div class="flex h-48 items-center justify-center rounded-2xl bg-brand-light">
-            <svg aria-hidden="true" class="h-20 w-20 text-muted" viewBox="0 0 24 24" fill="none" stroke="currentColor"
-              stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round">
-              <path d="M4 16c0-5 3.5-9 8-9s8 4 8 9"></path>
-              <circle cx="9" cy="12" r="1"></circle>
-              <circle cx="15" cy="12" r="1"></circle>
-              <path d="M7 7 5 3M17 7l2-4"></path>
-            </svg>
+
+          <div class="flex flex-col gap-4 p-3 sm:p-4">
+
+            <div class="flex flex-col gap-4 sm:flex-row">
+
+              <img src="./images/blue-eyes-white-dragon.png" alt="Blue-Eyes White Dragon"
+                class="mx-auto aspect-[3/4] w-40 rounded-xl border-2 border-amber-700 object-cover sm:mx-0 sm:w-36 lg:w-40">
+
+              <div class="min-w-0 flex-1">
+                <h3 class="font-display text-xl font-extrabold sm:text-2xl">
+                  Blue-Eyes White Dragon
+                </h3>
+
+                <p class="mt-2 text-sm text-muted">✴ Lumière</p>
+
+                <p class="mt-2 text-lg text-amber-500">
+                  ★ ★ ★ ★ ★ ★ ★ ★
+                  <span class="text-sm font-bold text-ink">8</span>
+                </p>
+
+                <p class="mt-3 text-sm leading-relaxed text-gray-700">
+                  Un dragon légendaire doté d'un puissant pouvoir destructeur.
+                  Sa force d'attaque est sans égale et fait de lui l'un des
+                  monstres les plus célèbres du monde.
+                </p>
+              </div>
+
+            </div>
+
+            <!-- Statistiques -->
+            <div class="flex flex-col gap-3 text-sm">
+
+              <div class="grid grid-cols-[48px_minmax(0,1fr)_40px] items-center gap-2">
+                <span class="font-bold">ATK</span>
+                <div class="h-3 overflow-hidden rounded-full bg-gray-200">
+                  <div class="h-full w-full rounded-full bg-red-600"></div>
+                </div>
+                <span class="text-right font-bold">3000</span>
+              </div>
+
+              <div class="grid grid-cols-[48px_minmax(0,1fr)_40px] items-center gap-2">
+                <span class="font-bold">DEF</span>
+                <div class="h-3 overflow-hidden rounded-full bg-gray-200">
+                  <div class="h-full w-[83%] rounded-full bg-blue-500"></div>
+                </div>
+                <span class="text-right font-bold">2500</span>
+              </div>
+
+              <div class="grid grid-cols-[48px_minmax(0,1fr)_40px] items-center gap-2">
+                <span class="font-bold">Niveau</span>
+                <div class="h-3 overflow-hidden rounded-full bg-gray-200">
+                  <div class="h-full w-[80%] rounded-full bg-amber-400"></div>
+                </div>
+                <span class="text-right font-bold">8</span>
+              </div>
+
+            </div>
+
+            <button type="button" data-add-team="001" class="btn-primary w-full">
+              Ajouter à l'équipe
+            </button>
+
           </div>
-          <div class="flex items-center justify-between">
-            <h2 class="font-display text-3xl font-extrabold">Mossling</h2>
-            <span class="rounded-full bg-brand-light px-3 py-1 text-sm font-bold">Plante</span>
-          </div>
-          <p class="text-gray-700">Une créature calme qui dort sous les feuilles mortes et se réveille quand il pleut.
-          </p>
-          <div class="flex flex-col gap-2 text-sm">
-            <div class="grid grid-cols-[80px_1fr_40px] items-center gap-2"><span class="font-bold">PV</span><span
-                class="h-3 rounded-full bg-ground"><span
-                  class="block h-3 w-[30%] rounded-full bg-brand"></span></span><span
-                class="text-right font-mono">45</span></div>
-            <div class="grid grid-cols-[80px_1fr_40px] items-center gap-2"><span class="font-bold">Attaque</span><span
-                class="h-3 rounded-full bg-ground"><span
-                  class="block h-3 w-[33%] rounded-full bg-brand"></span></span><span
-                class="text-right font-mono">49</span></div>
-            <div class="grid grid-cols-[80px_1fr_40px] items-center gap-2"><span class="font-bold">Défense</span><span
-                class="h-3 rounded-full bg-ground"><span
-                  class="block h-3 w-[43%] rounded-full bg-brand"></span></span><span
-                class="text-right font-mono">65</span></div>
-          </div>
-          <button type="button" class="btn-primary">Ajouter à l'équipe</button>
         </section>
 
-        <!-- ===================== MON ÉQUIPE (INCOMPLÈTE) ===================== -->
-        <section id="team" aria-label="Mon équipe" class="rounded-card bg-white p-6">
-          <h2 class="font-display text-2xl font-extrabold">Mon équipe</h2>
-          <!-- TODO (Partie 1) : terminez cette section en suivant la maquette :
-               compteur x/6, 6 emplacements (vides ou remplis), message de règles. -->
+        <!-- ===================== MON ÉQUIPE ===================== -->
+        <section id="team" aria-label="Mon équipe" class="rounded-card bg-white p-3 shadow-sm sm:p-4">
+
+          <div class="mb-3 flex items-center justify-between gap-2">
+            <h2 class="font-display text-xl font-extrabold sm:text-2xl">
+              Mon équipe
+            </h2>
+
+            <span id="team-count" class="text-xl font-extrabold text-red-700">
+              0/6
+            </span>
+          </div>
+
+          <div id="team-slots" class="grid grid-cols-6 gap-1 sm:gap-2">
+
+            <div
+              class="flex aspect-[3/4] items-center justify-center rounded-lg border border-dashed border-gray-300 text-xl text-gray-500">
+              +</div>
+            <div
+              class="flex aspect-[3/4] items-center justify-center rounded-lg border border-dashed border-gray-300 text-xl text-gray-500">
+              +</div>
+            <div
+              class="flex aspect-[3/4] items-center justify-center rounded-lg border border-dashed border-gray-300 text-xl text-gray-500">
+              +</div>
+            <div
+              class="flex aspect-[3/4] items-center justify-center rounded-lg border border-dashed border-gray-300 text-xl text-gray-500">
+              +</div>
+            <div
+              class="flex aspect-[3/4] items-center justify-center rounded-lg border border-dashed border-gray-300 text-xl text-gray-500">
+              +</div>
+            <div
+              class="flex aspect-[3/4] items-center justify-center rounded-lg border border-dashed border-gray-300 text-xl text-gray-500">
+              +</div>
+
+          </div>
+
+          <p id="team-message" class="mt-3 text-sm text-muted">
+            Choisissez jusqu'à 6 monstres pour composer votre équipe.
+          </p>
+
         </section>
 
       </aside>
+
     </div>
 
-    <!-- ===================== FORMULAIRE DE CRÉATION ===================== -->
-    <section id="create" aria-label="Nouvelle créature" class="flex flex-col gap-6 rounded-card bg-white p-8">
-      <div>
-        <h2 class="font-display text-3xl font-extrabold">Nouvelle créature</h2>
-        <p class="text-muted">Chaque champ est vérifié avant l'ajout de la créature.</p>
-      </div>
-      <form id="creature-form" novalidate class="grid grid-cols-1 gap-5 md:grid-cols-2 lg:grid-cols-4">
-        <label class="flex flex-col gap-1 text-sm font-bold">Numéro
-          <input name="id" type="text" placeholder="#010" class="field font-normal">
-          <span class="error-message text-sm font-normal text-muted"></span>
-        </label>
-        <label class="flex flex-col gap-1 text-sm font-bold">Nom
-          <input name="name" type="text" placeholder="Nom de la créature" class="field font-normal">
-          <span class="error-message text-sm font-normal text-muted"></span>
-        </label>
-        <label class="flex flex-col gap-1 text-sm font-bold">Type
-          <select name="type" class="field font-normal">
-            <option value="">Choisir un type</option>
-            <option>Feu</option>
-            <option>Eau</option>
-            <option>Plante</option>
-            <option>Électrik</option>
-            <option>Glace</option>
-            <option>Ténèbres</option>
-          </select>
-          <span class="error-message text-sm font-normal text-muted"></span>
-        </label>
-        <label class="flex flex-col gap-1 text-sm font-bold">Niveau
-          <input name="level" type="text" placeholder="Base, Niveau 1…" class="field font-normal">
-          <span class="error-message text-sm font-normal text-muted"></span>
-        </label>
-        <label class="flex flex-col gap-1 text-sm font-bold">Statistique 1
-          <input name="stat1" type="text" placeholder="0 à 999" class="field font-normal">
-          <span class="error-message text-sm font-normal text-muted"></span>
-        </label>
-        <label class="flex flex-col gap-1 text-sm font-bold">Statistique 2
-          <input name="stat2" type="text" placeholder="0 à 999" class="field font-normal">
-          <span class="error-message text-sm font-normal text-muted"></span>
-        </label>
-        <label class="flex flex-col gap-1 text-sm font-bold">Statistique 3
-          <input name="stat3" type="text" placeholder="0 à 999" class="field font-normal">
-          <span class="error-message text-sm font-normal text-muted"></span>
-        </label>
-        <label class="flex flex-col gap-1 text-sm font-bold">Lien de l'image
-          <input name="image" type="text" placeholder="https://…/image.png" class="field font-normal">
-          <span class="error-message text-sm font-normal text-muted"></span>
-        </label>
-        <label class="flex flex-col gap-1 text-sm font-bold md:col-span-2 lg:col-span-4">Description
-          <textarea name="description" rows="3" placeholder="10 à 200 caractères"
-            class="rounded-xl border-2 border-line p-3 font-normal outline-none"></textarea>
-          <span class="error-message text-sm font-normal text-muted"></span>
-        </label>
-        <div class="flex flex-wrap justify-end gap-3 md:col-span-2 lg:col-span-4">
-          <button type="reset" class="btn-outline px-6">Effacer</button>
-          <button type="submit" class="btn-primary">Ajouter la créature</button>
-        </div>
-      </form>
-    </section>
+<!-- ===================== FORMULAIRE DE CRÉATION ===================== -->
+<section
+  id="create"
+  aria-labelledby="create-title"
+  class="rounded-2xl border-2 border-[#30251B] bg-[#FFFDF7] p-4 shadow-lg sm:p-6 lg:p-8"
+>
+  <!-- Titre -->
+  <div class="mb-6 border-b-2 border-[#D6B66D] pb-4">
+    <p class="mb-2 text-xs font-bold uppercase tracking-[0.2em] text-[#8B1E24]">
+      Personnalise ton Dex
+    </p>
 
-  </main>
+    <h2
+      id="create-title"
+      class="font-display text-2xl font-extrabold text-[#30251B] sm:text-3xl"
+    >
+      Nouvelle créature
+    </h2>
 
-  <footer class="mx-auto max-w-7xl px-8 pb-10 text-sm text-muted">
-    Images : [source des images de votre univers]. Projet de fans réalisé dans le cadre d'une formation.
-  </footer>
+    <p class="mt-2 text-sm leading-6 text-[#66594A]">
+      Ajoute un monstre à ton encyclopédie en remplissant les informations ci-dessous.
+    </p>
+  </div>
+
+  <!-- Formulaire -->
+  <form
+    id="creature-form"
+    novalidate
+    class="grid grid-cols-1 gap-4 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4"
+  >
+    <!-- Numéro -->
+    <label class="flex min-w-0 flex-col gap-2 text-sm font-bold text-[#30251B]">
+      Numéro
+      <input
+        name="id"
+        type="text"
+        placeholder="#010"
+        class="field w-full min-w-0 font-normal"
+      >
+      <span class="error-message text-sm font-normal text-red-700"></span>
+    </label>
+
+    <!-- Nom -->
+    <label class="flex min-w-0 flex-col gap-2 text-sm font-bold text-[#30251B]">
+      Nom du monstre
+      <input
+        name="name"
+        type="text"
+        placeholder="Dark Magician"
+        class="field w-full min-w-0 font-normal"
+      >
+      <span class="error-message text-sm font-normal text-red-700"></span>
+    </label>
+
+    <!-- Attribut -->
+    <label class="flex min-w-0 flex-col gap-2 text-sm font-bold text-[#30251B]">
+      Attribut
+      <select
+        name="type"
+        class="field w-full min-w-0 font-normal"
+      >
+        <option value="">Choisir un attribut</option>
+        <option value="Lumière">Lumière</option>
+        <option value="Ténèbres">Ténèbres</option>
+        <option value="Feu">Feu</option>
+        <option value="Eau">Eau</option>
+        <option value="Terre">Terre</option>
+        <option value="Vent">Vent</option>
+        <option value="Divin">Divin</option>
+      </select>
+      <span class="error-message text-sm font-normal text-red-700"></span>
+    </label>
+
+    <!-- Niveau -->
+    <label class="flex min-w-0 flex-col gap-2 text-sm font-bold text-[#30251B]">
+      Niveau
+      <input
+        name="level"
+        type="number"
+        min="1"
+        max="12"
+        placeholder="Ex. 7"
+        class="field w-full min-w-0 font-normal"
+      >
+      <span class="error-message text-sm font-normal text-red-700"></span>
+    </label>
+
+    <!-- ATK -->
+    <label class="flex min-w-0 flex-col gap-2 text-sm font-bold text-[#30251B]">
+      Attaque (ATK)
+      <input
+        name="stat1"
+        type="number"
+        min="0"
+        max="99999"
+        placeholder="Ex. 2500"
+        class="field w-full min-w-0 font-normal"
+      >
+      <span class="error-message text-sm font-normal text-red-700"></span>
+    </label>
+
+    <!-- DEF -->
+    <label class="flex min-w-0 flex-col gap-2 text-sm font-bold text-[#30251B]">
+      Défense (DEF)
+      <input
+        name="stat2"
+        type="number"
+        min="0"
+        max="99999"
+        placeholder="Ex. 2100"
+        class="field w-full min-w-0 font-normal"
+      >
+      <span class="error-message text-sm font-normal text-red-700"></span>
+    </label>
+
+    <!-- Troisième statistique -->
+    <label class="flex min-w-0 flex-col gap-2 text-sm font-bold text-[#30251B]">
+      Points de vie (PV)
+      <input
+        name="stat3"
+        type="number"
+        min="0"
+        max="99999"
+        placeholder="Ex. 2000"
+        class="field w-full min-w-0 font-normal"
+      >
+      <span class="error-message text-sm font-normal text-red-700"></span>
+    </label>
+
+    <!-- Image -->
+    <label class="flex min-w-0 flex-col gap-2 text-sm font-bold text-[#30251B] sm:col-span-2 xl:col-span-1">
+      Lien de l'image
+      <input
+        name="image"
+        type="url"
+        placeholder="https://.../image.png"
+        class="field w-full min-w-0 font-normal"
+      >
+      <span class="error-message text-sm font-normal text-red-700"></span>
+    </label>
+
+    <!-- Description -->
+    <label class="flex min-w-0 flex-col gap-2 text-sm font-bold text-[#30251B] sm:col-span-2 lg:col-span-3 xl:col-span-4">
+      Description du monstre
+      <textarea
+        name="description"
+        rows="4"
+        minlength="10"
+        maxlength="200"
+        placeholder="Décris les capacités et les caractéristiques de ce monstre..."
+        class="w-full resize-y rounded-xl border-2 border-[#D8C9A5] bg-white p-3 text-sm font-normal text-[#30251B] outline-none transition focus:border-[#8B1E24] focus:ring-2 focus:ring-[#8B1E24]/20"
+      ></textarea>
+      <span class="error-message text-sm font-normal text-red-700"></span>
+      <span class="text-xs font-normal text-[#766A5A]">
+        Entre 10 et 200 caractères.
+      </span>
+    </label>
+
+    <!-- Boutons -->
+    <div class="flex flex-col-reverse gap-3 border-t border-[#E4D8BD] pt-4 sm:col-span-2 sm:flex-row sm:justify-end lg:col-span-3 xl:col-span-4">
+      <button
+        type="reset"
+        class="btn-outline w-full sm:w-auto"
+      >
+        Effacer
+      </button>
+
+      <button
+        type="submit"
+        class="w-full rounded-xl border-2 border-[#6F141B] bg-[#8B1E24] px-6 py-3 font-bold text-white transition hover:bg-[#6F141B] focus:outline-none focus:ring-2 focus:ring-[#8B1E24] focus:ring-offset-2 sm:w-auto"
+      >
+        + Ajouter le monstre
+      </button>
+    </div>
+  </form>
+</section>
+</main>
+
+<!-- ===================== FOOTER ===================== -->
+<footer class="mx-auto max-w-7xl px-3 pb-8 text-center text-xs text-[#66594A] sm:px-4 sm:text-sm lg:px-8">
+  Les noms et illustrations appartiennent à leurs ayants droit.
+  Projet de fans réalisé dans le cadre d'une formation.
+</footer>
+
 
   <!-- data.js (à créer) doit être chargé AVANT script.js -->
   <script src="./data.js"></script>

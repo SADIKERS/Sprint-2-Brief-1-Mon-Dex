@@ -4,19 +4,36 @@
 
 .page-background {
   min-height: 100vh;
-  background-color: #F7F1E9;
   background-image: url("/Sprint-2-Brief-1-Mon-Dex/images/Fond parcheminé du duel antique.png");
   background-repeat: no-repeat;
   background-position: center top;
-  background-size: cover;
-  background-attachment: fixed;
+  background-size:cover ;
+  background-attachment:fixed;
 }
 /* Image de fond du header */
 .header-background {
-  background-image: url("/Sprint-2-Brief-1-Mon-Dex/images/Bannière\ égyptienne\ rouge\ et\ noire\ \(1\).png");
+  top: 0;
+  left: 0;
+  position: fixed;
+  width: 100%;
+  z-index: 50;
+
+  background-image: url("/Sprint-2-Brief-1-Mon-Dex/images/Bannière égyptienne rouge et noire (1).png");
   background-size: cover;
   background-position: center;
   background-repeat: no-repeat;
+}
+
+/* Mobile */
+main {
+  padding-top: 100px;
+}
+
+/* PC */
+@media (min-width: 1024px) {
+  main {
+    padding-top: 80px;
+  }
 }
 @layer components {
   /* Bouton principal */
