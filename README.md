@@ -1,5 +1,5 @@
 # Mon Dex — dépôt de départ
-
+https://sadikers.github.io/Sprint-2-Brief-1-Mon-Dex/
 Sprint 2 — Brief 1. Une page Tailwind **statique** à rendre interactive avec JavaScript, pour l'univers de votre choix : Pokémon, Digimon ou Yu-Gi-Oh!.
 
 Lisez le brief complet avant de commencer.
