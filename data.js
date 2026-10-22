@@ -21,7 +21,7 @@ const creatures = [
   {
     id: "#001",
     name: "Blue-Eyes White Dragon",
-    type: "Lumière",
+    type: "🔆 Lumière",
     level: 8,
     stats: { atk: 3000, def: 2500 },
     image: "https://s3.zerochan.net/240/00/35/3959250.avif",

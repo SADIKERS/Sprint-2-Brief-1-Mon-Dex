@@ -11,13 +11,49 @@
 // Supprimez les cartes écrites à la main dans index.html et
 // construisez la grille à partir du tableau `creatures`.
 // -------------------------------------------------------------
+const grid = document.querySelector("#grid");
+const detail = document.querySelector("#detail");
+function displaymonsters() {
 
+    grid.innerHTML = creatures.map(creature => `
+        <article class="flex min-w-0 flex-col gap-2 border-2 border-black rounded-card bg-yellow-500/50 p-2 shadow-2xl sm:gap-3 sm:p-3">
+          <div class="relative overflow-hidden rounded-xl bg-brand-light">
+            <img src="${creature.image}" alt="${creature.name}"
+            class= "aspect-[4/3] w-full object-cover w-full transition-transform hover:scale-105">
+            <span
+              class="absolute left-2 top-2 rounded-lg bg-black/80 px-2 py-1 font-mono text-xs font-bold text-white sm:text-sm">
+              ${creature.id}
+            </span>
+          </div>
 
+          <h3 class="break-words font-display text-sm font-bold sm:text-base">
+            ${creature.name}
+          </h3>
+
+          <div class="flex items-center justify-between gap-1 text-xs sm:text-sm">
+            <span>${creature.type}</span>
+            <span class="shrink-0 font-bold text-amber-500">★${creature.level}</span>
+          </div>
+
+          <div class="flex flex-wrap justify-between gap-1 text-xs font-semibold sm:text-sm">
+            <span>ATK <strong>${creature.stats.atk}</strong></span>
+            <span>DEF <strong>${creature.stats.atk}</strong></span>
+          </div>
+
+          <button type="button" data-add-team="${creature.id}" class="btn-outline w-full">
+            Ajouter à l'équipe
+          </button>
+        </article>
+
+        `).join("");
+}
+displaymonsters();
 // -------------------------------------------------------------
 // 2. DÉTAIL
 // Un clic sur une carte ouvre le panneau de détail :
 // image, description, et statistiques affichées en barres.
 // -------------------------------------------------------------
+
 
 
 // -------------------------------------------------------------

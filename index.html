@@ -79,276 +79,93 @@
 
     <!-- ===================== GRILLE, DÉTAILS ET ÉQUIPE ===================== -->
     <div class="flex flex-col gap-6 lg:flex-row lg:items-start lg:gap-5">
-
       <!-- ===================== GRILLE DES MONSTRES ===================== -->
       <section id="grid" aria-label="Monstres Yu-Gi-Oh!"
-        class="grid min-w-0 flex-1 grid-cols-2 gap-3 sm:gap-4 lg:grid-cols-2 xl:grid-cols-3">
-        <!-- Monstre 001 -->
-        <article class="flex min-w-0 flex-col gap-2 border-2 border-black rounded-card bg-yellow-500/50 p-2 shadow-2xl sm:gap-3 sm:p-3">
-          <div class="relative overflow-hidden rounded-xl bg-brand-light">
-            <img src="https://wallpapercave.com/wp/wp2661213.jpg" alt="Blue-Eyes White Dragon"
-              class= " aspect-[4/3] w-full object-cover w-full transition-transform hover:scale-105">
-            <span
-              class="absolute left-2 top-2 rounded-lg bg-black/80 px-2 py-1 font-mono text-xs font-bold text-white sm:text-sm">
-              #001
-            </span>
-          </div>
-
-          <h3 class="break-words font-display text-sm font-bold sm:text-base">
-            Blue-Eyes White Dragon
-          </h3>
-
-          <div class="flex items-center justify-between gap-1 text-xs sm:text-sm">
-            <span>🔆 Lumière</span>
-            <span class="shrink-0 font-bold text-amber-500">★ 8</span>
-          </div>
-
-          <div class="flex flex-wrap justify-between gap-1 text-xs font-semibold sm:text-sm">
-            <span>ATK <strong>3000</strong></span>
-            <span>DEF <strong>2500</strong></span>
-          </div>
-
-          <button type="button" data-add-team="001" class="btn-outline w-full">
-            Ajouter à l'équipe
-          </button>
-        </article>
-
-        <!-- Monstre 002 -->
-        <article class="flex min-w-0 flex-col gap-2 border-2 border-black rounded-card bg-yellow-500/50 p-2 shadow-2xl  sm:gap-3 sm:p-3">
-          <div class="relative overflow-hidden rounded-xl bg-brand-light">
-            <img src="https://i.pinimg.com/originals/4e/fb/74/4efb7468119107a82c1ca964688eda83.jpg" alt="Dark Magician"
-              class="aspect-[4/3] w-full object-cover transition-transform hover:scale-105">
-            <span
-              class="absolute left-2 top-2 rounded-lg bg-black/80 px-2 py-1 font-mono text-xs font-bold text-white sm:text-sm">
-              #002
-            </span>
-          </div>
-
-          <h3 class="break-words font-display text-sm font-bold sm:text-base">
-            Dark Magician
-          </h3>
-
-          <div class="flex items-center justify-between gap-1 text-xs sm:text-sm">
-            <span>🟣 Ténèbres</span>
-            <span class="shrink-0 font-bold text-amber-500">★ 7</span>
-          </div>
-
-          <div class="flex flex-wrap justify-between gap-1 text-xs font-semibold sm:text-sm">
-            <span>ATK <strong>2500</strong></span>
-            <span>DEF <strong>2100</strong></span>
-          </div>
-
-          <button type="button" data-add-team="002" class="btn-outline w-full">
-            Ajouter à l'équipe
-          </button>
-        </article>
-
-        <!-- Monstre 003 -->
-        <article class="flex min-w-0 flex-col gap-2 border-2 border-black rounded-card bg-yellow-500/50 p-2 shadow-2xl  sm:gap-3 sm:p-3">
-          <div class="relative overflow-hidden rounded-xl bg-brand-light">
-            <img src="https://images-wixmp-ed30a86b8c4ca887773594c2.wixmp.com/f/13714538-e319-4cce-9062-6941ce18525d/dh6zj1s-74b46e2d-e89f-486c-8279-24414e217264.png/v1/fill/w_1280,h_721,q_80,strp/red_eyes_black_dragon__rush_duel___wallpaper__by_nhociory_dh6zj1s-fullview.jpg?token=eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJzdWIiOiJ1cm46YXBwOjdlMGQxODg5ODIyNjQzNzNhNWYwZDQxNWVhMGQyNmUwIiwiaXNzIjoidXJuOmFwcDo3ZTBkMTg4OTgyMjY0MzczYTVmMGQ0MTVlYTBkMjZlMCIsIm9iaiI6W1t7ImhlaWdodCI6Ijw9NzIxIiwicGF0aCI6Ii9mLzEzNzE0NTM4LWUzMTktNGNjZS05MDYyLTY5NDFjZTE4NTI1ZC9kaDZ6ajFzLTc0YjQ2ZTJkLWU4OWYtNDg2Yy04Mjc5LTI0NDE0ZTIxNzI2NC5wbmciLCJ3aWR0aCI6Ijw9MTI4MCJ9XV0sImF1ZCI6WyJ1cm46c2VydmljZTppbWFnZS5vcGVyYXRpb25zIl19.Id9ifW8SivDl6BjWi3abhM3CbYDsd-wbh-fsNh0M0Xw" alt="Red-Eyes Black Dragon"
-              class="aspect-[4/3] w-full object-cover transition-transform hover:scale-105">
-            <span
-              class="absolute left-2 top-2 rounded-lg bg-black/80 px-2 py-1 font-mono text-xs font-bold text-white sm:text-sm">
-              #003
-            </span>
-          </div>
-
-          <h3 class="break-words font-display text-sm font-bold sm:text-base">
-            Red-Eyes Black Dragon
-          </h3>
-
-          <div class="flex items-center justify-between gap-1 text-xs sm:text-sm">
-            <span>🟣 Ténèbres</span>
-            <span class="shrink-0 font-bold text-amber-500">★ 7</span>
-          </div>
-
-          <div class="flex flex-wrap justify-between gap-1 text-xs font-semibold sm:text-sm">
-            <span>ATK <strong>2400</strong></span>
-            <span>DEF <strong>2000</strong></span>
-          </div>
-
-          <button type="button" data-add-team="003" class="btn-outline w-full">
-            Ajouter à l'équipe
-          </button>
-        </article>
-
-        <!-- Monstre 004 -->
-        <article class="flex min-w-0 flex-col gap-2 border-2 border-black rounded-card bg-yellow-500/50 p-2 shadow-2xl  sm:gap-3 sm:p-3">
-          <div class="relative overflow-hidden rounded-xl bg-brand-light">
-            <img src="https://images-wixmp-ed30a86b8c4ca887773594c2.wixmp.com/f/13714538-e319-4cce-9062-6941ce18525d/dg5yzib-a429273e-2a30-43c6-b394-59b6a8f38062.png?token=eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJzdWIiOiJ1cm46YXBwOjdlMGQxODg5ODIyNjQzNzNhNWYwZDQxNWVhMGQyNmUwIiwiaXNzIjoidXJuOmFwcDo3ZTBkMTg4OTgyMjY0MzczYTVmMGQ0MTVlYTBkMjZlMCIsIm9iaiI6W1t7InBhdGgiOiIvZi8xMzcxNDUzOC1lMzE5LTRjY2UtOTA2Mi02OTQxY2UxODUyNWQvZGc1eXppYi1hNDI5MjczZS0yYTMwLTQzYzYtYjM5NC01OWI2YThmMzgwNjIucG5nIn1dXSwiYXVkIjpbInVybjpzZXJ2aWNlOmZpbGUuZG93bmxvYWQiXX0.yy0Cu6d_fdnnM8HpHvaap5iJWWGAR8tDNj42xyw1B_Y" alt="Summoned Skull"
-              class="aspect-[4/3] w-full object-cover transition-transform hover:scale-105">
-            <span
-              class="absolute left-2 top-2 rounded-lg bg-black/80 px-2 py-1 font-mono text-xs font-bold text-white sm:text-sm">
-              #004
-            </span>
-          </div>
-
-          <h3 class="break-words font-display text-sm font-bold sm:text-base">
-            Summoned Skull
-          </h3>
-
-          <div class="flex items-center justify-between gap-1 text-xs sm:text-sm">
-            <span>🟣 Ténèbres</span>
-            <span class="shrink-0 font-bold text-amber-500">★ 6</span>
-          </div>
-
-          <div class="flex flex-wrap justify-between gap-1 text-xs font-semibold sm:text-sm">
-            <span>ATK <strong>2500</strong></span>
-            <span>DEF <strong>1200</strong></span>
-          </div>
-
-          <button type="button" data-add-team="004" class="btn-outline w-full">
-            Ajouter à l'équipe
-          </button>
-        </article>
-
-        <!-- Monstre 005 -->
-        <article class="flex min-w-0 flex-col gap-2 border-2 border-black rounded-card bg-yellow-500/50 p-2 shadow-2xl  sm:gap-3 sm:p-3">
-          <div class="relative overflow-hidden rounded-xl bg-brand-light">
-            <img src="https://s3.zerochan.net/240/10/38/3789410.avif" alt="Dark Magician Girl"
-              class="aspect-[4/3] w-full object-cover transition-transform hover:scale-105">
-            <span
-              class="absolute left-2 top-2 rounded-lg bg-black/80 px-2 py-1 font-mono text-xs font-bold text-white sm:text-sm">
-              #005
-            </span>
-          </div>
-
-          <h3 class="break-words font-display text-sm font-bold sm:text-base">
-            Dark Magician Girl
-          </h3>
-
-          <div class="flex items-center justify-between gap-1 text-xs sm:text-sm">
-            <span>🟣 Ténèbres</span>
-            <span class="shrink-0 font-bold text-amber-500">★ 6</span>
-          </div>
-
-          <div class="flex flex-wrap justify-between gap-1 text-xs font-semibold sm:text-sm">
-            <span>ATK <strong>2000</strong></span>
-            <span>DEF <strong>1700</strong></span>
-          </div>
-
-          <button type="button" data-add-team="005" class="btn-outline w-full">
-            Ajouter à l'équipe
-          </button>
-        </article>
-
-        <!-- Monstre 006 -->
-        <article class="flex min-w-0 flex-col gap-2 border-2 border-black rounded-card bg-yellow-500/50 p-2 shadow-2xl sm:gap-3 sm:p-3">
-          <div class="relative overflow-hidden rounded-xl bg-brand-light">
-            <img src="https://uploads2.yugioh.com/card_images/968/detail/086.jpg?1382473016" alt="Slifer the Sky Dragon"
-              class="aspect-[4/3] w-full object-cover transition-transform hover:scale-105">
-            <span
-              class="absolute left-2 top-2 rounded-lg bg-black/80 px-2 py-1 font-mono text-xs font-bold text-white sm:text-sm">
-              #006
-            </span>
-          </div>
-
-          <h3 class="break-words font-display text-sm font-bold sm:text-base">
-            Slifer the Sky Dragon
-          </h3>
-
-          <div class="flex items-center justify-between gap-1 text-xs sm:text-sm">
-            <span>🔱 Divin</span>
-            <span class="shrink-0 font-bold text-amber-500">★ 10</span>
-          </div>
-
-          <div class="flex flex-wrap justify-between gap-1 text-xs font-semibold sm:text-sm">
-            <span>ATK <strong>2000</strong></span>
-            <span>DEF <strong>1500</strong></span>
-          </div>
-
-          <button type="button" data-add-team="006" class="btn-outline w-full">
-            Ajouter à l'équipe
-          </button>
-        </article>
-
+        class="grid min-w-0 flex-1 grid-cols-2 gap-3 sm:gap-4 lg:grid-cols-2 xl:grid-cols-3 max-h-[750px] overflow-y-auto content-start pr-2">
       </section>
 
       <!-- ===================== DÉTAILS ET ÉQUIPE ===================== -->
       <aside class="flex w-full min-w-0 flex-col gap-5 lg:w-[340px] xl:w-[420px] lg:shrink-0">
-
         <!-- ===================== DÉTAIL DU MONSTRE ===================== -->
-        <section id="detail" aria-label="Détail du monstre"
-          class="overflow-hidden rounded-card border-2 border-black bg-white shadow-2xl">
-
+        <section id="detail" aria-label="Détail du monstre" class="overflow-hidden rounded-card border-2 bg-white shadow-2xl">
+      
           <div class="flex items-center justify-between gap-3 bg-red-900 px-4 py-3 text-white">
-            <h2 class="font-display text-lg font-bold sm:text-xl">
+            <h2 id="detail-title" class="font-display text-lg font-bold sm:text-xl">
               #001 - Détail
             </h2>
-
+      
             <button type="button" id="close-detail" aria-label="Fermer le détail"
               class="rounded-lg border border-white/50 px-3 py-1">
               ✕
             </button>
           </div>
-
+      
           <div class="flex flex-col gap-4 p-3 sm:p-4">
-
+      
             <div class="flex flex-col gap-4 sm:flex-row">
-
-              <img src="https://s3.zerochan.net/240/00/35/3959250.avif" alt="Blue-Eyes White Dragon"
+      
+              <img id="detail-image" src="https://s3.zerochan.net/240/00/35/3959250.avif" alt="Blue-Eyes White Dragon"
                 class="mx-auto aspect-[3/4] w-40 rounded-xl border-2 border-amber-700 object-cover sm:mx-0 sm:w-36 lg:w-40">
-
+      
               <div class="min-w-0 flex-1">
-                <h3 class="font-display text-xl font-extrabold sm:text-2xl">
+                <h3 id="detail-name" class="font-display text-xl font-extrabold sm:text-2xl">
                   Blue-Eyes White Dragon
                 </h3>
-
-                <p class="mt-2 text-sm text-muted">✴ Lumière</p>
-
+      
+                <p id="detail-type" class="mt-2 text-sm text-muted">🔆 Lumière</p>
+      
                 <p class="mt-2 text-lg text-amber-500">
                   ★ ★ ★ ★ ★ ★ ★ ★
-                  <span class="text-sm font-bold text-ink">8</span>
+                  <span id="detail-level" class="text-sm font-bold text-ink">8</span>
                 </p>
-
-                <p class="mt-3 text-sm leading-relaxed text-gray-700">
+      
+                <p id="detail-description" class="mt-3 text-sm leading-relaxed text-gray-700">
                   Un dragon légendaire doté d'un puissant pouvoir destructeur.
                   Sa force d'attaque est sans égale et fait de lui l'un des
                   monstres les plus célèbres du monde.
                 </p>
               </div>
-
+      
             </div>
-
+      
             <!-- Statistiques -->
             <div class="flex flex-col gap-3 text-sm">
-
+      
               <div class="grid grid-cols-[48px_minmax(0,1fr)_40px] items-center gap-2">
                 <span class="font-bold">ATK</span>
                 <div class="h-3 overflow-hidden rounded-full bg-gray-200">
-                  <div class="h-full w-full rounded-full bg-red-600"></div>
+                  <div id="detail-atk-bar" class="h-full w-full rounded-full bg-red-600"></div>
                 </div>
-                <span class="text-right font-bold">3000</span>
+                <span id="detail-atk" class="text-right font-bold">3000</span>
               </div>
-
+      
               <div class="grid grid-cols-[48px_minmax(0,1fr)_40px] items-center gap-2">
                 <span class="font-bold">DEF</span>
                 <div class="h-3 overflow-hidden rounded-full bg-gray-200">
-                  <div class="h-full w-[83%] rounded-full bg-blue-500"></div>
+                  <div id="detail-def-bar" class="h-full w-[83%] rounded-full bg-blue-500"></div>
                 </div>
-                <span class="text-right font-bold">2500</span>
+                <span id="detail-def" class="text-right font-bold">2500</span>
               </div>
-
+      
               <div class="grid grid-cols-[48px_minmax(0,1fr)_40px] items-center gap-2">
                 <span class="font-bold">Niveau</span>
                 <div class="h-3 overflow-hidden rounded-full bg-gray-200">
-                  <div class="h-full w-[80%] rounded-full bg-amber-400"></div>
+                  <div id="detail-level-bar" class="h-full w-[80%] rounded-full bg-amber-400"></div>
                 </div>
-                <span class="text-right font-bold">8</span>
+                <span id="detail-level-value" class="text-right font-bold">8</span>
               </div>
-
+      
             </div>
-
-            <button type="button" data-add-team="001" class="btn-primary w-full">
+      
+            <button type="button" data-add-team="#001" class="btn-primary w-full">
               Ajouter à l'équipe
             </button>
-
+      
           </div>
         </section>
 
         <!-- ===================== MON ÉQUIPE ===================== -->
-        <section id="team" aria-label="Mon équipe" class="rounded-card bg-white p-3 shadow-sm sm:p-4">
+        <section id="team" aria-label="Mon équipe" class="rounded-card bg-white p-3 shadow-2xl sm:p-4">
 
           <div class="mb-3 flex items-center justify-between gap-2">
             <h2 class="font-display text-xl font-extrabold sm:text-2xl">
@@ -382,7 +199,7 @@
               +</div>
 
           </div>
-
+          =
           <p id="team-message" class="mt-3 text-sm text-muted">
             Choisissez jusqu'à 6 monstres pour composer votre équipe.
           </p>
@@ -432,13 +249,13 @@
           Attribut
           <select name="type" class="field w-full min-w-0 font-normal">
             <option value="">Choisir un attribut</option>
-            <option value="Lumière">Lumière</option>
-            <option value="Ténèbres">Ténèbres</option>
-            <option value="Feu">Feu</option>
-            <option value="Eau">Eau</option>
-            <option value="Terre">Terre</option>
-            <option value="Vent">Vent</option>
-            <option value="Divin">Divin</option>
+            <option value="Lumière">🔆 Lumière</option>
+            <option value="Ténèbres">🟣 Ténèbres</option>
+            <option value="Feu">🔥 Feu</option>
+            <option value="Eau">💧 Eau</option>
+            <option value="Terre">🌍 Terre</option>
+            <option value="Vent">🌪️ Vent</option>
+            <option value="Divin">🔱 Divin</option>
           </select>
           <span class="error-message text-sm font-normal text-red-700"></span>
         </label>
@@ -516,7 +333,6 @@
     Les noms et illustrations appartiennent à leurs ayants droit.
     Projet de fans réalisé dans le cadre d'une formation.
   </footer>
-
 
   <!-- data.js (à créer) doit être chargé AVANT script.js -->
   <script src="./data.js"></script>
