@@ -43,7 +43,7 @@ main {
 
   /* Bouton secondaire */
   .btn-outline {
-    @apply h-11 px-4 rounded-xl border-2 border-ink bg-white text-ink font-bold outline-none;
+    @apply h-11 px-4 py-2 rounded-xl border-2 border-ink bg-white text-ink font-bold outline-none;
   }
 
   /* Bouton de filtre */
