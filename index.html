@@ -27,7 +27,7 @@
           class="rounded-lg border border-amber-400 px-2 py-1 text-center font-bold transition-transform hover:scale-110">Monstres</a>
         <a href="#team"
           class="rounded-lg border border-white/25 px-2 py-1 text-center font-bold transition-transform hover:scale-110">Mon
-          équipe · <span id="team-count">0</span>/6</a>
+          équipe · <span id="count-team">0</span>/6</a>
         <a href="#create"
           class="rounded-lg bg-red-700 px-2 py-1 text-center font-bold transition-transform hover:scale-110">+ Nouveau
           monstre</a>
@@ -87,9 +87,9 @@
       <!-- ===================== DÉTAILS ET ÉQUIPE ===================== -->
       <aside class="flex w-full min-w-0 flex-col gap-5 lg:w-[340px] xl:w-[420px] lg:shrink-0">
         <!-- ===================== DÉTAIL DU MONSTRE ===================== -->
-        <section id="detail" aria-label="Détail du monstre" class="overflow-hidden rounded-card border-2 bg-white shadow-2xl">
+        <section id="detail" aria-label="Détail du monstre" class=" hidden overflow-hidden rounded-card border-2 bg-white shadow-2xl">
       
-          <div class="flex items-center justify-between gap-3 bg-red-900 px-4 py-3 text-white">
+          <div class="flex items-center justify-between gap-3 rounded-2xl bg-red-900 px-4 py-3 text-white">
             <h2 id="detail-title" class="font-display text-lg font-bold sm:text-xl">
               #001 - Détail
             </h2>
@@ -105,7 +105,7 @@
             <div class="flex flex-col gap-4 sm:flex-row">
       
               <img id="detail-image" src="https://s3.zerochan.net/240/00/35/3959250.avif" alt="Blue-Eyes White Dragon"
-                class="mx-auto aspect-[3/4] w-40 rounded-xl border-2 border-amber-700 object-cover sm:mx-0 sm:w-36 lg:w-40">
+                class="mx-auto aspect-[3/4] shrink-0 w-40 rounded-xl border-2 border-amber-700 object-cover sm:mx-0 sm:w-36 lg:w-40">
       
               <div class="min-w-0 flex-1">
                 <h3 id="detail-name" class="font-display text-xl font-extrabold sm:text-2xl">
@@ -120,9 +120,7 @@
                 </p>
       
                 <p id="detail-description" class="mt-3 text-sm leading-relaxed text-gray-700">
-                  Un dragon légendaire doté d'un puissant pouvoir destructeur.
-                  Sa force d'attaque est sans égale et fait de lui l'un des
-                  monstres les plus célèbres du monde.
+                 Un dragon légendaire doté d'une puissance d'attaque exceptionnelle.
                 </p>
               </div>
       
@@ -134,7 +132,7 @@
               <div class="grid grid-cols-[48px_minmax(0,1fr)_40px] items-center gap-2">
                 <span class="font-bold">ATK</span>
                 <div class="h-3 overflow-hidden rounded-full bg-gray-200">
-                  <div id="detail-atk-bar" class="h-full w-full rounded-full bg-red-600"></div>
+                  <div id="detail-atk-bar" class="h-full rounded-full bg-red-600"></div>
                 </div>
                 <span id="detail-atk" class="text-right font-bold">3000</span>
               </div>
@@ -142,15 +140,15 @@
               <div class="grid grid-cols-[48px_minmax(0,1fr)_40px] items-center gap-2">
                 <span class="font-bold">DEF</span>
                 <div class="h-3 overflow-hidden rounded-full bg-gray-200">
-                  <div id="detail-def-bar" class="h-full w-[83%] rounded-full bg-blue-500"></div>
+                  <div id="detail-def-bar" class="h-full rounded-full bg-blue-500"></div>
                 </div>
-                <span id="detail-def" class="text-right font-bold">2500</span>
+                <span id="detail-def" class="text-right font-bold"></span>
               </div>
       
               <div class="grid grid-cols-[48px_minmax(0,1fr)_40px] items-center gap-2">
                 <span class="font-bold">Niveau</span>
                 <div class="h-3 overflow-hidden rounded-full bg-gray-200">
-                  <div id="detail-level-bar" class="h-full w-[80%] rounded-full bg-amber-400"></div>
+                  <div id="detail-level-bar" class="h-full  rounded-full bg-amber-400"></div>
                 </div>
                 <span id="detail-level-value" class="text-right font-bold">8</span>
               </div>

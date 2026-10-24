@@ -12,11 +12,10 @@
 // construisez la grille à partir du tableau `creatures`.
 // -------------------------------------------------------------
 const grid = document.querySelector("#grid");
-const detail = document.querySelector("#detail");
-function displaymonsters() {
 
-    grid.innerHTML = creatures.map(creature => `
-        <article class="flex min-w-0 flex-col gap-2 border-2 border-black rounded-card bg-yellow-500/50 p-2 shadow-2xl sm:gap-3 sm:p-3">
+function displaymonsters() {
+  grid.innerHTML = creatures.map(creature => `
+        <article data-id = "${creature.id}" class="flex min-w-0 flex-col gap-2 border-2 border-black rounded-card bg-yellow-500/50 p-2 shadow-2xl sm:gap-3 sm:p-3">
           <div class="relative overflow-hidden rounded-xl bg-brand-light">
             <img src="${creature.image}" alt="${creature.name}"
             class= "aspect-[4/3] w-full object-cover w-full transition-transform hover:scale-105">
@@ -48,13 +47,61 @@ function displaymonsters() {
         `).join("");
 }
 displaymonsters();
+
 // -------------------------------------------------------------
 // 2. DÉTAIL
 // Un clic sur une carte ouvre le panneau de détail :
 // image, description, et statistiques affichées en barres.
 // -------------------------------------------------------------
 
+const detailTitle = document.querySelector("#detail-title");
+const detailImage = document.querySelector("#detail-image");
+const detailName = document.querySelector("#detail-name");
+const detailType = document.querySelector("#detail-type");
+const detailLevel = document.querySelector("#detail-level");
+const detailLevelValue = document.querySelector("#detail-level-value");
+const detailDescription = document.querySelector("#detail-description");
+const detailAtk = document.querySelector("#detail-atk");
+const detailDef = document.querySelector("#detail-def");
+const detailAtkBar = document.querySelector("#detail-atk-bar");
+const detailDefBar = document.querySelector("#detail-def-bar");
+const detailLevelBar = document.querySelector("#detail-level-bar");
+const closeDetail = document.querySelector("close-detail")
 
+
+grid.addEventListener("click", function (event) {
+  const card = event.target.closest("article[data-id]");
+
+  if (!card) return;
+  if (event.target.closest("button")) return;
+
+  const creatureId = card.dataset.id;
+
+  const selectedCreature = creatures.find(
+    creature => creature.id === creatureId
+  );
+  
+  document.querySelector("#detail").classList.remove("hidden");
+  detailTitle.textContent = `${selectedCreature.id} - Détail`;
+  detailImage.src = selectedCreature.image;
+  detailImage.alt = selectedCreature.name;
+  detailName.textContent = selectedCreature.name;
+  detailType.textContent = selectedCreature.type;
+  detailLevel.textContent = selectedCreature.level;
+  detailLevelValue.textContent = selectedCreature.level;
+  detailDescription.textContent = selectedCreature.description;
+  detailAtk.textContent = selectedCreature.stats.atk;
+  detailDef.textContent = selectedCreature.stats.def;
+  detailAtkBar.style.width = `${(selectedCreature.stats.atk / 4000) * 100}%`;
+  detailDefBar.style.width = `${(selectedCreature.stats.def / 4000) * 100}%`;
+  detailLevelBar.style.width = `${(selectedCreature.level / 12) * 100}%`;
+});
+// 
+closeDetail.addEventListener("click", function(){
+  
+  detail.classList.add("hidden");
+  deatil.classList.remove("hidden");
+});
 
 // -------------------------------------------------------------
 // 3. RECHERCHE
