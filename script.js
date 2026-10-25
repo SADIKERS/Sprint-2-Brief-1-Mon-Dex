@@ -5,7 +5,6 @@
 // Écrivez votre code ici, fonctionnalité par fonctionnalité.
 // Une carte GitHub Projects et au moins un commit par fonctionnalité.
 
-
 // -------------------------------------------------------------
 // 1. AFFICHAGE
 // Supprimez les cartes écrites à la main dans index.html et
@@ -36,7 +35,7 @@ function displaymonsters() {
 
           <div class="flex flex-wrap justify-between gap-1 text-xs font-semibold sm:text-sm">
             <span>ATK <strong>${creature.stats.atk}</strong></span>
-            <span>DEF <strong>${creature.stats.atk}</strong></span>
+            <span>DEF <strong>${creature.stats.def}</strong></span>
           </div>
 
           <button type="button" data-add-team="${creature.id}" class="btn-outline w-full">
@@ -53,7 +52,7 @@ displaymonsters();
 // Un clic sur une carte ouvre le panneau de détail :
 // image, description, et statistiques affichées en barres.
 // -------------------------------------------------------------
-
+const detail = document.querySelector("#detail");
 const detailTitle = document.querySelector("#detail-title");
 const detailImage = document.querySelector("#detail-image");
 const detailName = document.querySelector("#detail-name");
@@ -66,7 +65,7 @@ const detailDef = document.querySelector("#detail-def");
 const detailAtkBar = document.querySelector("#detail-atk-bar");
 const detailDefBar = document.querySelector("#detail-def-bar");
 const detailLevelBar = document.querySelector("#detail-level-bar");
-const closeDetail = document.querySelector("close-detail")
+const closeDetail = document.querySelector("#close-detail")
 
 
 grid.addEventListener("click", function (event) {
@@ -80,7 +79,7 @@ grid.addEventListener("click", function (event) {
   const selectedCreature = creatures.find(
     creature => creature.id === creatureId
   );
-  
+
   document.querySelector("#detail").classList.remove("hidden");
   detailTitle.textContent = `${selectedCreature.id} - Détail`;
   detailImage.src = selectedCreature.image;
@@ -94,21 +93,65 @@ grid.addEventListener("click", function (event) {
   detailDef.textContent = selectedCreature.stats.def;
   detailAtkBar.style.width = `${(selectedCreature.stats.atk / 4000) * 100}%`;
   detailDefBar.style.width = `${(selectedCreature.stats.def / 4000) * 100}%`;
-  detailLevelBar.style.width = `${(selectedCreature.level / 12) * 100}%`;
+  detailLevelBar.style.width = `${(selectedCreature.level / 10) * 100}%`;
 });
 // 
-closeDetail.addEventListener("click", function(){
-  
+closeDetail.addEventListener("click", function () {
   detail.classList.add("hidden");
-  deatil.classList.remove("hidden");
 });
 
 // -------------------------------------------------------------
 // 3. RECHERCHE
 // La liste se met à jour pendant la saisie d'un nom
 // (sans tenir compte des majuscules).
-// -------------------------------------------------------------
+// 
 
+const searchInput = document.querySelector("#search");
+
+searchInput.addEventListener("input", function () {
+  const searchText = searchInput.value.toLowerCase().trim();
+
+  const filteredCreatures = creatures.filter(function (creature) {
+    return creature.name.toLowerCase().includes(searchText);
+  });
+
+
+  searchInput.addEventListener("input", function () {
+    const searchText = searchInput.value.toLowerCase().trim();
+
+    const filteredCreatures = creatures.filter(function (creature) {
+      return creature.name.toLowerCase().includes(searchText);
+    });
+
+    grid.innerHTML = filteredCreatures.map(creature => `
+    <article data-id="${creature.id}" class="flex min-w-0 flex-col gap-2 border-2 border-black rounded-card bg-yellow-500/50 p-2 shadow-2xl sm:gap-3 sm:p-3">
+      <div class="relative overflow-hidden rounded-xl bg-brand-light">
+        <img src="${creature.image}" alt="${creature.name}" class="aspect-[4/3] w-full object-cover">
+        <span class="absolute left-2 top-2 rounded-lg bg-black/80 px-2 py-1 font-mono text-xs font-bold text-white">
+          ${creature.id}
+        </span>
+      </div>
+
+      <h3 class="break-words font-display text-sm font-bold sm:text-base">${creature.name}</h3>
+
+      <div class="flex items-center justify-between gap-1 text-xs sm:text-sm">
+        <span>${creature.type}</span>
+        <span class="font-bold text-amber-500">★ ${creature.level}</span>
+      </div>
+
+      <div class="flex justify-between gap-1 text-xs font-semibold sm:text-sm">
+        <span>ATK <strong>${creature.stats.atk}</strong></span>
+        <span>DEF <strong>${creature.stats.def}</strong></span>
+      </div>
+
+      <button type="button" data-add-team="${creature.id}" class="btn-outline w-full">
+        Ajouter à l'équipe
+      </button>
+    </article>
+  `).join("");
+  });
+
+});
 
 // -------------------------------------------------------------
 // 4. FILTRE
