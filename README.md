@@ -1,44 +1,96 @@
-# Mon Dex — dépôt de départ
-https://sadikers.github.io/Sprint-2-Brief-1-Mon-Dex/
-Sprint 2 — Brief 1. Une page Tailwind **statique** à rendre interactive avec JavaScript, pour l'univers de votre choix : Pokémon, Digimon ou Yu-Gi-Oh!.
+# Mon Dex — Yu-Gi-Oh!
 
-Lisez le brief complet avant de commencer.
+**Sprint 2 — Brief 1**
 
-## Installation
+Mon Dex est une application web interactive dédiée à l'univers de **Yu-Gi-Oh!**. Le projet utilise HTML, Tailwind CSS et JavaScript pour afficher, rechercher, filtrer et gérer une collection de monstres.
 
-Prérequis : [Node.js](https://nodejs.org) (version 18 ou plus).
+## Démo
+
+- **Lien GitHub Pages :** https://sadikers.github.io/Sprint-2-Brief-1-Mon-Dex/
+
+## Technologies utilisées
+
+- HTML5
+- Tailwind CSS
+- JavaScript
+- Git et GitHub
+
+## Fonctionnalités réalisées
+
+### 1. Affichage des monstres
+- Affichage dynamique des monstres à partir du tableau `creatures` dans `data.js`.
+- Création des cartes avec JavaScript.
+- Affichage des informations principales des monstres.
+
+### 2. Détails d'un monstre
+- Affichage des informations du monstre sélectionné.
+- Présentation de son image, de sa description et de ses statistiques.
+
+### 3. Recherche et filtres
+- Recherche des monstres par nom.
+- Filtrage des monstres par attribut.
+- Combinaison de la recherche et des filtres.
+
+### 4. Création d'un monstre
+- Formulaire permettant d'ajouter un nouveau monstre.
+- Validation des champs avec des expressions régulières.
+- Vérification du format et de l'unicité de l'identifiant.
+- Vérification du nom, de l'attribut, du niveau, des statistiques, de l'image et de la description.
+- Affichage des messages d'erreur et indication visuelle des champs valides ou invalides.
+- Ajout du monstre à la collection et actualisation de l'affichage après validation.
+
+### 5. Mon équipe
+- Ajout des monstres à une équipe.
+- Limite de six monstres.
+- Prévention des doublons.
+
+## Installation et lancement
+
+Prérequis : [Node.js](https://nodejs.org) version 18 ou supérieure.
 
 ```bash
 npm install
 npm run dev
 ```
 
-`npm run dev` surveille vos fichiers et régénère `dist/output.css` à chaque modification. Ouvrez ensuite `index.html` dans votre navigateur (ou avec l'extension Live Server).
+La commande `npm run dev` surveille les fichiers et régénère le CSS lorsque des modifications sont effectuées.
 
-Avant de mettre en ligne sur GitHub Pages :
+Ouvrez ensuite `index.html` dans votre navigateur, par exemple avec l'extension Live Server.
+
+Avant de déployer le projet sur GitHub Pages :
 
 ```bash
 npm run build
 ```
 
-Puis committez `dist/output.css` : GitHub Pages ne lance pas Tailwind pour vous.
+Pensez à inclure `dist/output.css` dans vos commits, car GitHub Pages ne génère pas automatiquement le CSS de Tailwind.
 
-## Contenu du dépôt
+## Structure du projet
 
 | Fichier | Rôle |
 | --- | --- |
-| `index.html` | La page Dex, statique, avec 6 cartes écrites à la main |
-| `tailwind.config.js` | Le thème neutre à remplacer par celui de votre univers |
-| `src/input.css` | Les directives Tailwind et quelques classes de composants |
-| `dist/output.css` | Le CSS généré par Tailwind (ne pas modifier à la main) |
-| `data.js` | Le tableau `creatures`, à remplir avec au moins 12 créatures |
-| `script.js` | Votre JavaScript, avec la liste des fonctionnalités à coder |
-| `design/` | La maquette de la version finale |
+| `index.html` | Structure HTML et interface de Mon Dex |
+| `tailwind.config.js` | Configuration du thème Tailwind CSS |
+| `src/input.css` | Fichier source CSS |
+| `dist/output.css` | CSS généré par Tailwind CSS |
+| `data.js` | Tableau `creatures` contenant les données des monstres |
+| `script.js` | JavaScript : affichage, recherche, filtres, validation et gestion de l'équipe |
+| `design/` | Maquettes du projet |
 
-## À compléter par vous
+## Tests des expressions régulières
 
-- **Univers choisi :** [Pokémon / Digimon / Yu-Gi-Oh!]
-- **Lien GitHub Pages :** [lien]
-- **Sources des images :** [liens]
-- **Tests des expressions régulières :** [collez ici vos tests console : 2 valeurs valides et 2 invalides par expression]
-- **Bonus réalisés :** [liste]
+Les expressions régulières utilisées pour valider les champs du formulaire doivent être testées dans la console du navigateur.
+
+Pour chaque expression régulière, ajoutez au moins :
+- Deux valeurs valides.
+- Deux valeurs invalides.
+
+Les résultats des tests sont à compléter ici.
+
+## Bonus
+
+Les fonctionnalités bonus seront ajoutées et documentées lorsqu'elles seront réalisées.
+
+## Auteur
+
+Projet réalisé individuellement dans le cadre du Sprint 2 de YouCode.
