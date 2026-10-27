@@ -21,7 +21,7 @@ const creatures = [
   {
     id: "#001",
     name: "Blue-Eyes White Dragon",
-    type: "🔆 Lumière",
+    type: "Lumière",
     level: 8,
     stats: { atk: 3000, def: 2500 },
     image: "https://static0.cbrimages.com/wordpress/wp-content/uploads/2020/10/Blue-Eyes-White-Dragon-Art-6.jpg?q=50&fit=crop&w=825&dpr=1.5",
